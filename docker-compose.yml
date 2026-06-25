@@ -10,6 +10,13 @@ services:
       TZ: Europe/Paris
       GENERIC_TIMEZONE: Europe/Paris
 
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: persona
+      DB_POSTGRESDB_USER: persona
+      DB_POSTGRESDB_PASSWORD: persona
+
     volumes:
       - n8n_data:/home/node/.n8n
 
