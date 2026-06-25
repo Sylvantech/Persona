@@ -1,0 +1,33 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: persona
+
+    ports:
+      - "5678:5678"
+
+    environment:
+      TZ: Europe/Paris
+      GENERIC_TIMEZONE: Europe/Paris
+
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:17
+    container_name: persona-db
+
+    environment:
+      POSTGRES_USER: persona
+      POSTGRES_PASSWORD: persona
+      POSTGRES_DB: persona
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  n8n_data:
+  postgres_data:
